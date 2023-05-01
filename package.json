@@ -1,6 +1,6 @@
 {
   "name": "stable-diffusion-nodejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "StableDiffusion on nodejs with GPU acceleration using Cuda or DirectML",
   "main": "dist/index.js",
   "scripts": {
