@@ -17,7 +17,7 @@ function parseCommandLineArgs(): CommandLineArgs {
   const args = minimist(process.argv.slice(2));
 
   return {
-    m: args.m || 'aislamov/stable-diffusion-2-1-onnx',
+    m: args.m || 'aislamov/stable-diffusion-2-1-base-onnx',
     prompt: args.prompt || 'an astronaut riding a horse',
     negativePrompt: args.negativePrompt || '',
     provider: args.provider || 'cpu',
