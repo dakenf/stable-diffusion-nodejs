@@ -1,4 +1,4 @@
-import * as tf from '@tensorflow/tfjs-node'
+import * as tf from '@tensorflow/tfjs'
 import { InferenceSession, Tensor } from 'onnxruntime-node-gpu';
 import Tokenizer from './tokenizer'
 import { PNDMScheduler } from './schedulers/PNDMScheduler'

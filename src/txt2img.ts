@@ -1,7 +1,7 @@
 import minimist from 'minimist';
 import { StableDiffusionPipeline } from './StableDiffusionPipeline'
-import * as tf from '@tensorflow/tfjs-node'
 import fs from 'fs'
+import { PNG } from 'pngjs'
 
 interface CommandLineArgs {
   m: string;
@@ -37,9 +37,11 @@ async function main() {
   )
 
   let image = await pipe.run(args.prompt, args.negativePrompt, 1, 9, args.steps)
-  const png = await tf.node.encodePng(image[0])
-  fs.writeFileSync("output.png", png);
-  console.log('Saved output to output.png')
+  const p = new PNG({ width: 512, height: 512, inputColorType: 2 })
+  p.data = Buffer.from((await image[0].data()))
+  p.pack().pipe(fs.createWriteStream('output.png')).on('finish', () => {
+    console.log('Image saved as output.png');
+  })
 }
 
 main();

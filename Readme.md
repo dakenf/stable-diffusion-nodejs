@@ -9,6 +9,10 @@ Warning: this project requires Node 18
 ### Windows
 Works out of the box with DirectML. No additional libraries required
 
+You can speed up things by installing tfjs-node, but i haven't seen significant performance improvements https://github.com/tensorflow/tfjs/tree/master/tfjs-node
+
+It might require installing visual studio build tools and python 2.7 https://community.chocolatey.org/packages/visualstudio2022buildtools
+
 ### Linux / WSL2
 1. Install CUDA (tested only on 11-7 but 12 should be supported) https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
 2. Install onnxruntime-linux-x64-gpu-1.14.1 https://github.com/microsoft/onnxruntime/releases/tag/v1.14.1
@@ -16,7 +20,25 @@ Works out of the box with DirectML. No additional libraries required
 No requirements but can run only on CPU which is quite slow (about 0.2s/it for fp32 and 0.1s/it for fp16)
 
 ## Usage
-### SD 2.1
+### Basic windows with SD 2.1
+```typescript
+import { PNG } from 'pngjs'
+import { StableDiffusionPipeline } from 'stable-diffusion-nodejs'
+
+const pipe = await StableDiffusionPipeline.fromPretrained(
+  'directml', // can be 'cuda' on linux or 'cpu' on mac os
+  'aislamov/stable-diffusion-2-1-base-onnx', // relative path or huggingface repo with onnx model
+)
+
+const image = await pipe.run("A photo of a cat", undefined, 1, 9, 30)
+const p = new PNG({ width: 512, height: 512, inputColorType: 2 })
+p.data = Buffer.from((await image[0].data()))
+p.pack().pipe(fs.createWriteStream('output.png')).on('finish', () => {
+  console.log('Image saved as output.png');
+})
+```
+
+### Accelerated with tfjs-node SD 2.1
 ```typescript
 import * as tf from "@tensorflow/tfjs-node"
 import { StableDiffusionPipeline } from 'stable-diffusion-nodejs'
@@ -30,6 +52,7 @@ const image = await pipe.run("A photo of a cat", undefined, 1, 9, 30)
 const png = await tf.node.encodePng(image[0])
 fs.writeFileSync("output.png", png);
 ```
+
 ### To run 1.X models you need to pass huggingface hub revision and version number = 1
 ```typescript
 import * as tf from "@tensorflow/tfjs-node"

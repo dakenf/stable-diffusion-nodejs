@@ -1,6 +1,6 @@
 {
   "name": "stable-diffusion-nodejs",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "StableDiffusion on nodejs with GPU acceleration using Cuda or DirectML",
   "main": "dist/index.js",
   "scripts": {
@@ -19,13 +19,17 @@
   "homepage": "https://github.com/dakenf/stable-diffusion-nodejs#readme",
   "devDependencies": {
     "@types/minimist": "^1.2.2",
+    "@types/node": "^18.16.3",
+    "@types/pngjs": "^6.0.1",
+    "minimist": "^1.2.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
   "dependencies": {
     "@huggingface/hub": "^0.5.1",
-    "@tensorflow/tfjs-node": "^4.4.0",
+    "@tensorflow/tfjs": "^4.4.0",
     "onnxruntime-node-gpu": "^1.14.0",
+    "pngjs": "^7.0.0",
     "tqdm": "^2.0.3"
   }
 }
