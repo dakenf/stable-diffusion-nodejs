@@ -4,6 +4,8 @@
 This is a pure typescript implementation of SD pipeline that runs ONNX versions of the model with [patched ONNX node runtime](https://github.com/dakenf/onnxruntime-node-gpu)
 
 ## Requirements
+Warning: this project requires Node 18
+
 ### Windows
 Works out of the box with DirectML. No additional libraries required
 
