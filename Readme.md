@@ -21,6 +21,10 @@ tfjs-node might require installing visual studio build tools and python 2.7 http
 No requirements but can run only on CPU which is quite slow (about 0.2s/it for fp32 and 0.1s/it for fp16)
 
 ## Usage
+```
+npm i stable-diffusion-nodejs
+```
+
 ### Basic windows with SD 2.1
 ```typescript
 import { PNG } from 'pngjs'
