@@ -11,7 +11,7 @@ Works out of the box with DirectML. No additional libraries required
 
 You can speed up things by installing tfjs-node, but i haven't seen significant performance improvements https://github.com/tensorflow/tfjs/tree/master/tfjs-node
 
-It might require installing visual studio build tools and python 2.7 https://community.chocolatey.org/packages/visualstudio2022buildtools
+tfjs-node might require installing visual studio build tools and python 2.7 https://community.chocolatey.org/packages/visualstudio2022buildtools
 
 ### Linux / WSL2
 1. Install CUDA (tested only on 11-7 but 12 should be supported) https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
