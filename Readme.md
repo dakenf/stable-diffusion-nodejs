@@ -15,7 +15,8 @@ It might require installing visual studio build tools and python 2.7 https://com
 
 ### Linux / WSL2
 1. Install CUDA (tested only on 11-7 but 12 should be supported) https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
-2. Install onnxruntime-linux-x64-gpu-1.14.1 https://github.com/microsoft/onnxruntime/releases/tag/v1.14.1
+2. Install cuDNN https://developer.nvidia.com/rdp/cudnn-archive
+3. Install onnxruntime-linux-x64-gpu-1.14.1 https://github.com/microsoft/onnxruntime/releases/tag/v1.14.1
 ### Mac OS M1
 No requirements but can run only on CPU which is quite slow (about 0.2s/it for fp32 and 0.1s/it for fp16)
 
