@@ -1,3 +1,5 @@
+# THIS REPOSITORY IS OBSOLETE, USE https://github.com/dakenf/diffusers.js
+
 # Stable Diffusion for Node.js with GPU acceleration on Cuda or DirectML
 
 ## Info
